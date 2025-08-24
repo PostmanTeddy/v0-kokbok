@@ -1,0 +1,349 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Custom recipe app color system with warm, book-like feel */
+:root {
+  /* Paper Green Theme (Default) */
+  --paper: #f8f5ef;
+  --brand: #57bb8a;
+  --brand-foreground: #0e3a2b;
+  --ink: #311f12;
+  --ink-soft: #625e41;
+  --ink-muted: #99958a;
+  --olive: #7a816b;
+  --gray-subtle: #c8c5cf;
+  --gray-soft: #bcbac4;
+  --gray-neutral: #a4a5a3;
+  --border: #e8e5e1;
+
+  /* Gradient spotlight variables */
+  --spot-x: 50%;
+  --spot-y: 50%;
+  --spot-opacity: 0.3;
+  --spot-radius: 400px;
+  --spot-softness: 0.8;
+  --spot-a: var(--brand);
+  --spot-b: var(--olive);
+
+  /* Map custom colors to shadcn tokens */
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --card: var(--paper);
+  --card-foreground: var(--ink);
+  --popover: var(--paper);
+  --popover-foreground: var(--ink);
+  --primary: var(--brand);
+  --primary-foreground: var(--brand-foreground);
+  --secondary: var(--gray-subtle);
+  --secondary-foreground: var(--ink);
+  --muted: var(--gray-soft);
+  --muted-foreground: var(--ink-muted);
+  --accent: var(--olive);
+  --accent-foreground: var(--paper);
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --border: var(--border);
+  --input: var(--border);
+  --ring: var(--brand);
+  --chart-1: var(--brand);
+  --chart-2: var(--olive);
+  --chart-3: var(--ink-soft);
+  --chart-4: var(--gray-neutral);
+  --chart-5: var(--ink-muted);
+  --radius: 0.75rem;
+  --sidebar: var(--paper);
+  --sidebar-foreground: var(--ink);
+  --sidebar-primary: var(--brand);
+  --sidebar-primary-foreground: var(--brand-foreground);
+  --sidebar-accent: var(--olive);
+  --sidebar-accent-foreground: var(--paper);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--brand);
+  --font-scale: 100%; /* Default font scale */
+}
+
+/* Cocoa Theme */
+[data-theme="cocoa"] {
+  --paper: #f5f1ed;
+  --brand: #8b4513;
+  --brand-foreground: #ffffff;
+  --ink: #2f1b14;
+  --ink-soft: #5d4037;
+  --ink-muted: #8d6e63;
+  --olive: #6d4c41;
+  --gray-subtle: #d7ccc8;
+  --gray-soft: #bcaaa4;
+  --gray-neutral: #a1887f;
+  --border: #efebe9;
+  --spot-a: var(--brand);
+  --spot-b: var(--olive);
+}
+
+/* Ocean Theme */
+[data-theme="ocean"] {
+  --paper: #f0f4f8;
+  --brand: #0077be;
+  --brand-foreground: #ffffff;
+  --ink: #1a202c;
+  --ink-soft: #2d3748;
+  --ink-muted: #718096;
+  --olive: #4a5568;
+  --gray-subtle: #cbd5e0;
+  --gray-soft: #a0aec0;
+  --gray-neutral: #718096;
+  --border: #e2e8f0;
+  --spot-a: var(--brand);
+  --spot-b: var(--olive);
+}
+
+/* High Contrast Theme */
+[data-theme="high-contrast"] {
+  --paper: #ffffff;
+  --brand: #000000;
+  --brand-foreground: #ffffff;
+  --ink: #000000;
+  --ink-soft: #333333;
+  --ink-muted: #666666;
+  --olive: #444444;
+  --gray-subtle: #cccccc;
+  --gray-soft: #aaaaaa;
+  --gray-neutral: #888888;
+  --border: #dddddd;
+  --spot-a: var(--brand);
+  --spot-b: var(--olive);
+}
+
+/* Sepia Theme */
+[data-theme="sepia"] {
+  --paper: #f4f1e8;
+  --brand: #8b4513;
+  --brand-foreground: #f4f1e8;
+  --ink: #3e2723;
+  --ink-soft: #5d4037;
+  --ink-muted: #8d6e63;
+  --olive: #6d4c41;
+  --gray-subtle: #d7ccc8;
+  --gray-soft: #bcaaa4;
+  --gray-neutral: #a1887f;
+  --border: #efebe9;
+  --spot-a: var(--brand);
+  --spot-b: var(--olive);
+}
+
+/* Dark Theme */
+.dark {
+  --paper: #1a1a1a;
+  --brand: #57bb8a;
+  --brand-foreground: #0e3a2b;
+  --ink: #f8f5ef;
+  --ink-soft: #d1cdb7;
+  --ink-muted: #99958a;
+  --olive: #a4b494;
+  --gray-subtle: #3a3a3a;
+  --gray-soft: #4a4a4a;
+  --gray-neutral: #6a6a6a;
+  --border: #2a2a2a;
+  --spot-a: var(--brand);
+  --spot-b: var(--olive);
+}
+
+@theme inline {
+  --font-comfortaa: var(--font-comfortaa);
+  --font-source-serif: var(--font-source-serif);
+  --font-inter: var(--font-inter);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Added custom color utilities */
+  --color-paper: var(--paper);
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-muted: var(--ink-muted);
+  --color-olive: var(--olive);
+  --color-gray-subtle: var(--gray-subtle);
+  --color-gray-soft: var(--gray-soft);
+  --color-gray-neutral: var(--gray-neutral);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-source-serif), var(--font-inter), ui-serif, serif;
+  }
+
+  /* Typography system with custom fonts */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-comfortaa), ui-sans-serif, sans-serif;
+  }
+
+  h1 {
+    @apply text-4xl md:text-6xl leading-tight md:leading-tight tracking-tight;
+    color: var(--ink);
+    text-shadow: 1px 1px 0px var(--paper);
+  }
+
+  h2 {
+    @apply text-2xl md:text-4xl leading-9 md:leading-12;
+    color: var(--olive);
+    letter-spacing: -0.01em;
+  }
+
+  h3 {
+    @apply text-xl md:text-3xl leading-7 md:leading-9;
+    color: var(--ink-soft);
+  }
+
+  .ingress {
+    font-family: var(--font-source-serif), ui-serif, serif;
+    @apply text-lg leading-relaxed;
+  }
+
+  .ingress::first-letter {
+    @apply float-left text-5xl leading-none mr-2 mt-1;
+    color: var(--ink-soft);
+    font-family: var(--font-source-serif), ui-serif, serif;
+  }
+
+  /* Typography scaling support */
+  html {
+    font-size: calc(16px * var(--font-scale, 100%) / 100%);
+  }
+
+  /* Gradient spotlight effect */
+  .gradient-spotlight {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .gradient-spotlight::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    opacity: var(--spot-opacity, 0.3);
+    background: radial-gradient(
+        circle at var(--spot-x, 50%) var(--spot-y, 50%),
+        color-mix(in srgb, var(--spot-a) 20%, transparent) 0%,
+        color-mix(in srgb, var(--spot-b) 10%, transparent) 40%,
+        transparent 70%
+      ),
+      linear-gradient(
+        135deg,
+        color-mix(in srgb, var(--spot-a) 5%, transparent) 0%,
+        transparent 50%,
+        color-mix(in srgb, var(--spot-b) 5%, transparent) 100%
+      ), radial-gradient(ellipse at center, transparent 60%, color-mix(in srgb, var(--ink) 3%, transparent) 100%);
+    mix-blend-mode: soft-light;
+    transition: opacity 0.3s ease;
+    will-change: transform;
+  }
+
+  /* Print styles */
+  @media print {
+    .gradient-spotlight::before,
+    .scroll-progress,
+    nav,
+    header,
+    footer {
+      display: none !important;
+    }
+
+    body {
+      background: white !important;
+      color: black !important;
+    }
+
+    .shadow-card {
+      box-shadow: none !important;
+      border: 1px solid #ddd !important;
+    }
+  }
+
+  /* Custom utility classes */
+  .shadow-card {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+
+  .text-shadow-subtle {
+    text-shadow: 1px 1px 0px var(--paper);
+  }
+
+  /* Custom color utilities */
+  .bg-paper {
+    background-color: var(--paper);
+  }
+  .bg-brand {
+    background-color: var(--brand);
+  }
+  .bg-olive {
+    background-color: var(--olive);
+  }
+  .text-ink {
+    color: var(--ink);
+  }
+  .text-ink-soft {
+    color: var(--ink-soft);
+  }
+  .text-ink-muted {
+    color: var(--ink-muted);
+  }
+  .text-brand-foreground {
+    color: var(--brand-foreground);
+  }
+  .text-paper {
+    color: var(--paper);
+  }
+  .border-border {
+    border-color: var(--border);
+  }
+}
